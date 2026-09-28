@@ -26,8 +26,10 @@ function scoreUp() {
 function scoreUp10(amount) {
     score.value += amount;
 }
-
 // Then we link them (in this example a button) (See "**ref** example 02") 
+
+
+// [CONDITIONAL RENDERING]
 </script>
 
 <template>
