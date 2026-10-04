@@ -30,22 +30,46 @@ function scoreUp10(amount) {
 
 
 // [CONDITIONAL RENDERING]
+// We use "v-if" to conditionally render something. for example :
+const loggedIn = ref(false); // (See "**ref** example 03") 
+function login() {
+    loggedIn.value = !loggedIn.value;
+}
+
+// [TOGGLING A BOOLEAN REF]
+// Suppose we have:
+const menuOpen = ref(false);
+// We could write
+function toggleMenu() {
+    menuOpen.value = !menuOpen.value; 
+    // "!" is the "NOT" operator. It basically flip boolean value.
+    // In our case it take the menu and switch it to his opposite value everytime the function is called.
+}
+
 </script>
 
 <template>
     <h2 class="title">"ref" Study</h2>
     <br>
-    <!--**ref** example 01-->
+    <!--**ref** example 01 (rendering data)-->
     <h3>Ref example 01</h3>
     <p>Score example : {{ score }}</p>
     <p>Username example : {{ username }}</p>
     <br>
-    <!--**ref** example 02-->
+
+    <!--**ref** example 02 (function in template)-->
     <h3>Ref example 02</h3>
     <p>Classic function</p>
     <button @click="scoreUp">Score up +1</button>
     <p>function using 10 as argument</p>
     <button @click="scoreUp10(10)">Score up +10</button>
+    <br>
+
+    <!-- **ref** example 03 (conditional rendering)-->
+     <h2>Conditional renderring example :</h2>
+     <button @click="login">login switch</button>
+     <p v-if="loggedIn">Logged in is True!</p>
+     <p v-else>Logged in is false</p>
 
     <!-- [BINDING EXAMPLE] :
      @click="something"
@@ -55,6 +79,19 @@ function scoreUp10(amount) {
      @keydown="something"
      @mouseenter="something"
      -->
+
+     <!-- [CURRENT VUE VOCABULARY]
+      -"ref(value)": Create reactive data
+      -"value": Access / change a ref from JS
+      -"{{ value }}": Display data in the <template>
+      -"@click": React to a click
+      -"v-if": Render if condition is true
+      -"v-else-if": Another condition
+      -"v-else": Otherwise
+      -<script setup>: Component's JS
+      -<template>: Component's markup
+      -<style scoped>: CSS limited to this component
+      -->
 </template>
 
 <style scoped>
