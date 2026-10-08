@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 import refLesson from './components/lessons/refLesson.vue';
 import refExercise from './components/lessons/ref-exercise.vue';
-import vfor from './components/lessons/vfor.vue';
+import vforLesson from './components/lessons/vfor-lesson.vue';
 
 // Lesson toggle
 const pastLesson = ref(true);
@@ -21,7 +21,7 @@ function lessonSwitch() {
   <h2 class="separation">////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</h2>
 <ref-exercise v-if="pastLesson"/>
   <h2 class="separation">////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</h2>
-  <vfor/>
+  <vforLesson/>
 </template>
 <style>
 * {

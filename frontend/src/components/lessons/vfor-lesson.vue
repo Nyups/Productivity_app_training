@@ -32,7 +32,30 @@ const tasks = ref([
 
 
 // [GETTING THE INDEX OF AN ITEM] [Example 04]
-//
+// For that, v-for support a second variable :
+//        <li v-for="(potato, index) in items"> 
+//            {{ index }} - {{ potato }}
+//        </li>
+
+
+
+// [THE ":key" ATTRIBUTE] [Example 05]
+// Vue need to identify individual elements in a rendered list so it can efficiently track changes
+// when items are added, removed or re-ordered. 
+// The ":key" give each rendered items a stable identity.
+// For an array of unique string, using the :key="item" can work.
+// However for an array of object, a unique ID is usually better:
+const taskExample = ref([
+    {id: 1, name: "task01"},
+    {id: 2, name: "task02"},
+    {id: 3, name: "task03"}
+]);
+// Then in the template we go like :
+// <div v-for="task in taskExample" :key="task.id" >
+// {{ taskExample.name }}
+// </div>
+
+
 
 
 // [TESTING AREA]
@@ -54,8 +77,8 @@ const tasks = ref([
         Basically our little code is saying:  
         "For every item(or potato in our case), create one <li> and display that item."
         -->
-        <li v-for="potato in items"> 
-            {{ potato }}
+        <li v-for="(potato, index) in items"> 
+            {{ index }} - {{ potato }}
         </li>
         <br>
     </ul>
